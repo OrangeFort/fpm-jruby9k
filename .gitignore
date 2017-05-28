@@ -1,5 +1,8 @@
+*.deb
+*.tar.gz
 .bundle
 .yardoc
 Gemfile.lock
+build
 coverage
 doc
