@@ -16,13 +16,7 @@ RUN apt-get update && apt-get -y install \
       rubygems
 
 RUN gem install bundler
-
-RUN useradd -ms /bin/bash docker
-RUN mkdir -p /home/docker/.ssh
-RUN ssh-keyscan github.com > /home/docker/.ssh/known_hosts
-RUN chown -R docker:docker /home/docker/.ssh
 USER docker
-
 WORKDIR /build
 
 CMD bundle install --binstubs .bundle/bin --path .bundle/gems && make deb
