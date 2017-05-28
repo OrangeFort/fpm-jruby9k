@@ -16,7 +16,8 @@ RUN apt-get update && apt-get -y install \
       rubygems
 
 RUN gem install bundler
+RUN useradd -ms /bin/bash docker
 USER docker
 WORKDIR /build
 
-CMD bundle install --binstubs .bundle/bin --path .bundle/gems && make deb
+CMD bundle install --binstubs .bundle/bin --path .bundle/gems && make --makefile debian.makefile
