@@ -25,4 +25,4 @@ USER docker
 
 WORKDIR /build
 
-CMD bundle install --binstubs --path .bundle/gems && make deb
+CMD bundle install --binstubs .bundle/bin --path .bundle/gems && make deb
